@@ -1,7 +1,7 @@
 <template>
     <form class="custom">
         <slot></slot>
-        <button-submit @click="submit" disabled="!validated">가입하기</button-submit>
+        <button-submit @click="submit" :disabled="!validated">가입하기</button-submit>
     </form>
 </template>
 
