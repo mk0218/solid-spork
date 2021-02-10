@@ -7,34 +7,10 @@
             @import "stylesheet.css";
         </style>
     </head>
+
     <body>
-        <!-- Send page -->
-        <div id="send-page">
-            <div id="send-page-upper">
-                <div class="send-page-container">
-                    <img id="chain" class="send-page-item" src="resources/DesignSource02/chain.png"></img>
-                    <button type="button">
-                        <img id="close-button" class="send-page-item" src="resources/DesignSource02/close_button.png"></img>
-                    </button>
-                </div>
-                <div class="send-page-container" style="bottom: 70px">
-                    <img class="send-page-item send-page-content" style="margin-bottom: 50px" src="resources/DesignSource02/krw.png"></img>
-                    <img class="send-page-item send-page-content" src="resources/DesignSource02/title.png"></img>
-                </div>
-            </div>
-            <div id="send-page-lower">
-                <div class="send-page-container" style="top: 70px">
-                    <img class="send-page-item send-page-content" style="margin-bottom: 20px" src="resources/DesignSource02/send_description1.png"></img>
-                    <img id="coupon-button" src="resources/DesignSource02/send_decription1_button.png"></img>
-                    <img class="send-page-item send-page-content" src="resources/DesignSource02/send_decription2.png"></img>
-                </div>
-                <button id="send-money" class="main-button" type="button">
-                    <img src="./resources/DesignSource02/main_button.png"></img>
-                </button>
-            </div>
-        </div>
+        <!-- Main page -->
         <div id="main-page">
-            <!-- Main page -->
             <header>
                 <div id="header-logo">
                     <img src="./resources/DesignSource01/top_bar/kakao_logo.png"></img>
@@ -54,6 +30,7 @@
                     <img class="contents drop-the" src="./resources/DesignSource01/title_neon/drop_the_outer.png"></img>
                     <!-- 'MONEY' neon text-->
                     <img class="contents money inner" src="./resources/DesignSource01/title_neon/money_inner.png"></img>
+                    <img class="contents money-o inner" id="money-o" src="./resources/DesignSource01/title_neon/o.png"></img>
                     <img class="contents money" src="./resources/DesignSource01/title_neon/money_outer.png"></img>
                     <!-- '송금만해도현금이쏟아진다' text-->
                     <img class="contents description" src="./resources/DesignSource01/title_neon/description.png"></img>
@@ -63,7 +40,8 @@
                     <img class="contents money-text" src="./resources/DesignSource01/one_hundred_million_won/text.png"></img>
                     <!-- Finger images -->
                     <img class="contents money-left" src="./resources/DesignSource01/one_hundred_million_won/finger.png"></img>
-                    <img class="contents money-right" src="./resources/DesignSource01/one_hundred_million_won/finger.png"></img>
+                    <img class="contents money-right" src="./resources/DesignSource01/one_hundred_million_won/finger2.png"></img>
+                    <!-- Reward description box -->
                     <div class="contents text-box">
                         <div class="text-box-contents">
                             <img class="text-box-title" src="./resources/DesignSource01/reward_description/title.png"></img>
@@ -89,10 +67,11 @@
                         </button>
                     </div>
                     <!-- Bottom coins -->
-                    <img class="contents coins-bottom" src="./resources/DesignSource01/coins_bottom/coins_bottom.png"></img>
+                    <div class="contents coins-bottom"></div>
+                    <!-- <img class="contents coins-bottom" src="./resources/DesignSource01/coins_bottom/coins_bottom.png"></img> -->
                 </div>
             </div>
-            <button id="participate" class="main-button" type="button">
+            <button id="participate" class="main-button" type="button" onclick="openSendPage()">
                 <img src="./resources/DesignSource01/main_button/button.png"></img>
             </button>
             <footer>
@@ -111,5 +90,63 @@
                 </div>
             </footer>
         </div>
+        
+        <div id="coins-layer">
+            <img id="coin1" class="coin" src="./resources/DesignSource01/coin/coin1.png"></img>
+            <img id="coin2" class="coin" src="./resources/DesignSource01/coin/coin2.png"></img>
+            <img id="coin3" class="coin" src="./resources/DesignSource01/coin/coin3.png"></img>
+            <img id="coin4" class="coin" src="./resources/DesignSource01/coin/coin4.png"></img>
+            <img id="coin5" class="coin" src="./resources/DesignSource01/coin/coin5.png"></img>
+            <img id="coin6" class="coin" src="./resources/DesignSource01/coin/coin6.png"></img>
+        </div>
+
+        <!-- Send page -->
+        <div id="send-page">
+            <div id="send-page-upper">
+                <div class="send-page-container">
+                    <img id="chain" class="send-page-item" src="resources/DesignSource02/chain.png"></img>
+                    <button type="button" onclick="closeSendPage()">
+                        <img id="close-button" class="send-page-item" src="resources/DesignSource02/close_button.png"></img>
+                    </button>
+                </div>
+                <div class="send-page-container" style="bottom: 70px">
+                    <img class="send-page-item send-page-content" style="margin-bottom: 50px" src="resources/DesignSource02/krw.png"></img>
+                    <img class="send-page-item send-page-content" src="resources/DesignSource02/title.png"></img>
+                </div>
+            </div>
+            <div id="send-page-lower">
+                <div class="send-page-container" style="top: 70px">
+                    <img class="send-page-item send-page-content" style="margin-bottom: 20px" src="resources/DesignSource02/send_description1.png"></img>
+                    <img id="coupon-button" src="resources/DesignSource02/send_decription1_button.png"></img>
+                    <img class="send-page-item send-page-content" src="resources/DesignSource02/send_decription2.png"></img>
+                </div>
+                <button id="send-money" class="main-button" type="button">
+                    <img src="./resources/DesignSource02/main_button.png"></img>
+                </button>
+            </div>
+        </div>
     </body>
+
+    <script>
+        function closeSendPage () {
+            console.log("closeSendPage");
+            const sendPage = document.getElementById("send-page");
+            const sendUpper = document.getElementById("send-page-upper");
+            const sendLower = document.getElementById("send-page-lower");
+            sendPage.style.visibility = "hidden";
+            sendUpper.classList.remove('send-page-upper-open');
+            sendLower.classList.remove('send-page-lower-open');
+            sendUpper.style.top = "-5vh";
+            sendLower.style.top = "55vh";
+        }
+        function openSendPage () {
+            console.log("openSendPage");
+            const sendPage = document.getElementById("send-page");
+            const sendUpper = document.getElementById("send-page-upper");
+            const sendLower = document.getElementById("send-page-lower");
+            sendPage.style.visibility = "visible";
+            sendUpper.classList.add('send-page-upper-open');
+            sendLower.classList.add('send-page-lower-open');
+        }
+    </script>
 </html>

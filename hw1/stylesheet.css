@@ -3,13 +3,12 @@ body {
     background-image: url("./resources/DesignSource01/background/background.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
+    background-size: 100vw;
     height: 2500px;
     margin: 0;
     overflow: auto;
 }
-/* #main-page {
-    position: absolute;
-} */
+/* Main page elements style */
 header {
     width: 100%;
     height: 72px;
@@ -48,19 +47,23 @@ button.main-button {
     padding: 0;
     width: 100%;
     margin: 16px;
-    position: fixed;
     left: 0;
     bottom: 0;
-    z-index: 9;
+}
+#participate {
+    z-index: 11;
+    position: fixed;
 }
 button.main-button img {
+    position:relative;
     display: block;
     width: calc(100% - 32px);
     border-radius: 12px;
     box-shadow: 10px 10px 12px rgba(0, 0, 0, 0.6);
+    z-index: inherit;
 }
 .contents-container {
-    position: relative;
+    position: inherit;
 }
 .contents {
     position: absolute;
@@ -68,6 +71,23 @@ button.main-button img {
 #spark {
     top: 50px;
     left: calc(50% - 252px);
+    /* visibility: hidden; */
+    animation-name: show-spark;
+    animation-delay: 1200ms;
+    animation-duration: 200ms;
+    animation-fill-mode: forwards;
+}
+@keyframes show-spark {
+    from {
+        /* visibility: hidden; */
+        top: 209px;
+        transform: scaleY(0.1);
+    }
+    to {
+        /* visibility: visible; */
+        top: 50px;
+        transform: scaleY(1);
+    }
 }
 .drop-the {
     top: 140px;
@@ -76,6 +96,31 @@ button.main-button img {
 .money {
     top: 150px;
     left: calc(50% - 318px);
+    animation-name: money-blink;
+    animation-delay: 3.5s;
+    animation-duration: 1.6s;
+    animation-iteration-count: infinite;
+}
+@keyframes money-blink {
+    from { opacity: 1; }
+    50% { opacity: 0.8; }
+    to { opacity: 1; }
+}
+.money-o {
+    top: 150px;
+    left: calc(50% - 318px);
+    opacity: .4;
+    animation-name: o-blink;
+    animation-delay: 3s;
+    animation-duration: 300ms;
+    animation-fill-mode: forwards;
+}
+@keyframes o-blink {
+    0% { opacity: .4; }
+    25% { opacity: 0; }
+    50% { opacity: .4; }
+    75% { opacity: 0; }
+    100% { opacity: .4; }
 }
 .inner {
     z-index: 3;
@@ -87,23 +132,49 @@ button.main-button img {
 .money-img  {
     top: 460px;
     left: calc(50% - 292px);
+    animation-name: money-img-move;
+    animation-duration: 600ms;
+    animation-iteration-count: infinite;
+}
+@keyframes money-img-move {
+    from { top: 460px; }
+    80% { top: 467px;}
+    to { top: 460px;}
 }
 .money-text {
     top: 723px;
     left: calc(50% - 118px);
+    animation-name: money-text-move;
+    animation-duration: 600ms;
+    animation-iteration-count: infinite;
+}
+@keyframes money-text-move {
+    from { transform: scale(1.1, 1.1); }
+    to { transform: scale(1, 1); }
 }
 .money-left {
     top: 750px;
     left: calc(50% - 220px);
+    animation-name: money-left-move;
+    animation-duration: 600ms;
+    animation-iteration-count: infinite;
+}
+@keyframes money-left-move {
+    from { transform: rotate(-20deg); }
+    80% { transform: rotate(0);}
+    to { transform: rotate(-20deg); }
 }
 .money-right {
     top: 726px;
     left: calc(50% + 124px);
-    transform:rotate(0deg);
-    -moz-transform: scaleX(-1); 
-    -o-transform: scaleX(-1); 
-    -webkit-transform: scaleX(-1); 
-    transform: scaleX(-1);   
+    animation-name: money-right-move;
+    animation-duration: 600ms;
+    animation-iteration-count: infinite;
+}
+@keyframes money-right-move {
+    from { transform: rotate(20deg); }
+    80% { transform: rotate(0);}
+    to { transform: rotate(20deg); }
 }
 .text-box {
     display: block;
@@ -139,13 +210,24 @@ button.main-button img {
 img.share-box {
     top: 1180px;
     left: calc(50% - 347px);
+    opacity: .5;
+    animation-name: share-box-blink;
+    animation-delay: 8s;
+    animation-duration: 7s;
+    animation-iteration-count: infinite;
+}
+@keyframes share-box-blink {
+    0% { opacity: .5; }
+    3% { opacity: 1; }
+    6% { opacity: .5; }
+    9% {opacity: 1; }
+    100% {opacity: 1; }
 }
 div.share-box {
     top: 1230px;
     width: 640px;
     height: 140px;
     left: calc(50% - 320px);
-    /* background-color: rgba(255, 255, 255, 0.5); */
 }
 .share-items {
     left: calc(50% - 347px);
@@ -153,15 +235,18 @@ div.share-box {
     z-index: 1;
 }
 .coins-bottom {
+    background-image: url("./resources/DesignSource01/coins_bottom/coins_bottom.png");
     top: 1400px;
+    width: 100%;
+    height: 180px;
     z-index: 1;
 }
 footer {
     position: absolute;
-    background-color: rgba(81, 40s, 12, .3);
+    background-color: rgba(81, 40, 12, .4);
     width: 100%;
     height: 800px;
-    top: 1650px;
+    top: 1580px;
 }
 .footer-description {
     font-size: 1.3em;
@@ -185,11 +270,57 @@ footer li {
 footer li.tabbed {
     list-style-type: none;
 }
+
+/* Coins effects layer style */
+#coins-layer {
+    position: absolute;
+    width: 100%;
+    top: -80vh;
+    z-index: 5;
+    animation-name: coins-fall;
+    animation-delay: 200ms;
+    animation-duration: 500ms;
+    animation-fill-mode: forwards;
+}
+@keyframes coins-fall {
+    from { top: -80vh; }
+    to { top: 0; }
+}
+.coin {
+    position: absolute;
+}
+#coin1 {
+    left: 15vw;
+    top: 40vh;
+}
+#coin2 {
+    top: 40vh;
+    left: 83vw;
+}
+#coin3 {
+    top: 40vh;
+}
+#coin4 {
+    top: 33vh;
+    left: 83vw;
+}
+#coin5 {
+    top: 15vh;
+}
+#coin6 {
+    top: 50vh;
+    right: 0;
+}
+
+/* Send page elements style */
 #send-page {
     position: fixed;
-    width: 100vw;
+    top: 0;
+    width: 100%;
     height: 100vh;
+    background-color: black;
     z-index: 11;
+    visibility: hidden;
 }
 #send-page-upper {
     position: fixed;
@@ -199,21 +330,49 @@ footer li.tabbed {
     background-repeat: no-repeat;
     width: 100%;
     height: 50vh;
-    z-index: 12;
-    top: 0;
+    z-index: 13;
+    top: -5vh;
+}
+.send-page-upper-open {
+    animation-name: open-upper;
+    animation-delay: 100ms;
+    animation-duration: 300ms;
+    animation-fill-mode: forwards;
+}
+@keyframes open-upper {
+    0% { top: -5vh; }
+    40% { top: 0; }
+    60% { top: -3vh;}
+    80% { top: 0; }
+    90% { top: -1vh; }
+    100% { top: 0; }
 }
 #send-page-lower {
     position: fixed;
     background-image: url("./resources/DesignSource02/bg_lower.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    top: 50vh;
+    top: 55vh;
     width: 100%;
-    height: 80vh;
+    height: 50vh;
     z-index: 12;
 }
+.send-page-lower-open {
+    animation-name: open-lower;
+    animation-delay: 100ms;
+    animation-duration: 300ms;
+    animation-fill-mode: forwards;
+}
+@keyframes open-lower {
+    0% { top: 55vh; }
+    40% { top: 50vh;}
+    60% { top: 53vh;}
+    80% { top: 50; }
+    90% { top: 51vh; }
+    100% { top: 50vh; }
+}
 .send-page-item {
-    z-index: 13;
+    z-index: 14;
 }
 .send-page-container {
     position: absolute;
@@ -238,8 +397,10 @@ footer li.tabbed {
     position: absolute;
     top: 15px;
     left: calc(50% + 160px);
-    z-index: 14;
+    z-index: 15;
 }
 #send-money {
-    z-index: 30;
+    position: absolute;
+    bottom: 0;
+    z-index: 99;
 }
