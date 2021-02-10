@@ -1,13 +1,15 @@
 body {
     background-color: rgb(46, 41, 37);
     background-image: url("./resources/DesignSource01/background/background.jpg");
-    background-size: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
     height: 2500px;
     margin: 0;
-    overflow: autos;
+    overflow: auto;
 }
+/* #main-page {
+    position: absolute;
+} */
 header {
     width: 100%;
     height: 72px;
@@ -49,7 +51,7 @@ button.main-button {
     position: fixed;
     left: 0;
     bottom: 0;
-    z-index: 10;
+    z-index: 9;
 }
 button.main-button img {
     display: block;
@@ -158,7 +160,7 @@ footer {
     position: absolute;
     background-color: rgba(81, 40s, 12, .3);
     width: 100%;
-    height: 850px;
+    height: 800px;
     top: 1650px;
 }
 .footer-description {
@@ -182,4 +184,62 @@ footer li {
 }
 footer li.tabbed {
     list-style-type: none;
+}
+#send-page {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 11;
+}
+#send-page-upper {
+    position: fixed;
+    background-image: url("./resources/DesignSource02/bg_upper.jpg");
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 50vh;
+    z-index: 12;
+    top: 0;
+}
+#send-page-lower {
+    position: fixed;
+    background-image: url("./resources/DesignSource02/bg_lower.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    top: 50vh;
+    width: 100%;
+    height: 80vh;
+    z-index: 12;
+}
+.send-page-item {
+    z-index: 13;
+}
+.send-page-container {
+    position: absolute;
+    width: 100%;
+}
+.send-page-content {
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+#chain {
+    position: absolute;
+    left: 40px;
+}
+#close-button {
+    position: absolute;
+    top: 80px;
+    right: 60px;
+}
+#coupon-button {
+    position: absolute;
+    top: 15px;
+    left: calc(50% + 160px);
+    z-index: 14;
+}
+#send-money {
+    z-index: 30;
 }
