@@ -3,7 +3,7 @@
         <input
             class="year"
             type="number"
-            min="1900"
+            :min="minYear"
             :max="year"
             v-model="year"
             @input="update">
@@ -29,20 +29,42 @@
 <script>
 
 let today = new Date();
+let maxYear = today.getFullYear();
 
 export default {
     name: 'SelectDate',
     data: function () {
         return {
-            year: today.getFullYear(),
+            minYear: 1900,
+            year: maxYear,
             month: today.getMonth() + 1,
             date: today.getDate(),
         }
     },
+    computed: {
+        valid: function () {
+            if (!this.year || !this.month || !this.date) {
+                return false;
+            }
+            if (this.year > maxYear || this.year < this.minYear) {
+                return false;
+            }
+            if (this.month < 1 || this.month > 12) {
+                return false;
+            }
+            if (this.date < 1 || this.date > 31) {
+                return false;
+            }
+            return true;
+        }
+    },
     methods: {
         update: function () {
-            let dateStr = this.year.toString() + "/" +
-                this.month.toString() + "/" + this.date.toString()
+            let dateStr = ""
+            if (this.valid) {
+                dateStr = this.year.toString() + "/" +
+                    this.month.toString() + "/" + this.date.toString()
+            }
             this.$emit('input', dateStr);
         }
     }
