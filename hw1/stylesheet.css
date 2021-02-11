@@ -50,7 +50,7 @@ button.main-button {
     bottom: 0;
 }
 #participate {
-    z-index: 31;
+    z-index: 30;
     position: fixed;
 }
 button.main-button img {
