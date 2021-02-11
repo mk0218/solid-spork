@@ -1,5 +1,5 @@
 module.exports = {
     publicPath: ProcessingInstruction.env.NODE_ENV === 'production'
-        ? '/hw2/'
+        ? '/solid-spork/'
         : '/'
 }

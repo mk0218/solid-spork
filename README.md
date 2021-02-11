@@ -12,6 +12,6 @@
 > npm install
 > npm run serve
 ```
-* 아래 사진와 같은 문구가 뜨면 개발용 서버 실행에 성공한 것입니다.
+* 아래 사진와 같은 문구가 뜨면 개발용 서버 실행에 성공한 것입니다.   
 ![App running at: -Local http://localhost:8080/ ...](./vue_runserver.jpg)
 * 해당 주소의 로컬 서버로 접속하시면 내용물을 확인하실 수 있습니다.
