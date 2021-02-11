@@ -51,6 +51,9 @@ export default {
     border: 1px solid rgb(120, 120, 120);
     padding: 0 8px;
     font-size: 1rem;
+    display: inline;
+    margin-left: 5px;
+    height: 40px;
 }
 .phone:focus {
     border: 1px solid #2196F3;
@@ -59,12 +62,6 @@ export default {
     display: flex;
     width: 100%;
     height: 100%;
-}
-.phone {
-    /*position: relative;*/
-    display: inline;
-    margin-left: 5px;
-    height: 40px;
 }
 .phone-prefix {
     width: calc(25% - 5px);

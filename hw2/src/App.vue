@@ -103,15 +103,6 @@ export default {
   height: 40px;
   margin-bottom: 14px;
 }
-.container {
-  position: relative;
-  height: 25px;
-  margin-bottom: 12px;
-  padding: 0;
-}
-.space {
-  height: 50px;
-}
 .agree {
   position: absolute;
   bottom: 80px;
