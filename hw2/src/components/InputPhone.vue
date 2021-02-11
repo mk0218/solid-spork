@@ -37,7 +37,10 @@ export default {
     },
     methods: {
         certify: function () {
-            alert('본인인증하는 창');
+            const msg =
+                "본인인증하는 창\n" + "전화번호: " +
+                this.prefixValue + this.inputDigits;
+            alert(msg);
         }
     }
 }

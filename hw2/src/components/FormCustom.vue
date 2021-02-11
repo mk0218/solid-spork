@@ -11,7 +11,7 @@ import Submit from "./ButtonSubmit.vue";
 export default {
     name: 'FormCustom',
     props: {
-        values: Array,
+        values: Object,
     },
     components: {
         'button-submit': Submit,
@@ -21,8 +21,9 @@ export default {
             if (this.values.length === 0) {
                 return false;
             }
-            for (let i = 0; i < this.values.length; i++) {
-                if (!this.values[i]) {
+            let key = "";
+            for (key in this.values) {
+                if (!this.values[key]) {
                     return false;
                 }
             }
@@ -31,7 +32,13 @@ export default {
     },
     methods: {
         submit: function () {
-            alert(this.values);
+            let msg = ""
+            let key = ""
+            for (key in this.values) {
+                msg += key + ": ";
+                msg += this.values[key] + "\n"
+            }
+            alert(msg);
         }
     }
 }

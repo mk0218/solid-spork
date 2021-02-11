@@ -59,14 +59,14 @@ export default {
   },
   computed: {
     values: function () {
-      return [
-        this.id,
-        this.passwd,
-        this.sex,
-        this.birthday,
-        this.phone,
-        this.agree
-      ];
+      return {
+        id: this.id,
+        password: this.passwd,
+        sex: this.sex,
+        birthday: this.birthday,
+        phone: this.phone,
+        agree: this.agree
+      };
     }
   },
   methods: {
