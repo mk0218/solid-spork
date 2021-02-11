@@ -317,6 +317,7 @@ footer li.tabbed {
 /* Coins effects layer style */
 #coins-layer-container {
     position: absolute;
+    width: 100%;
     top: -80vh;
     z-index: 5;
     animation-name: coins-fall;
