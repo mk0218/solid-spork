@@ -60,7 +60,7 @@ export default {
     },
     methods: {
         update: function () {
-            let dateStr = ""
+            let dateStr = "";
             if (this.valid) {
                 dateStr = this.year.toString() + "/" +
                     this.month.toString() + "/" + this.date.toString()
