@@ -18,9 +18,16 @@ export default {
 
 <style scoped>
 input.plain {
-    padding: 4px;
-    width: calc(100% - 10px);
-    height: 100%;
-    font-size: 1em;
+    outline: none;
+    position: relative;
+    padding: 0 8px;
+    width: calc(100% - 18px);
+    height: 40px;
+    border: 1px solid rgb(120, 120, 120);
+    border-radius: 4px;
+    font-size: 1rem;
+}
+input.plain:focus {
+    border: 1px solid #2196F3;
 }
 </style>

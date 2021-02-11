@@ -1,7 +1,7 @@
 <template>
     <form class="custom">
         <slot></slot>
-        <button-submit @click="submit" :disabled="!validated">가입하기</button-submit>
+        <button-submit class="submit-button" @click="submit" :disabled="!validated">가입하기</button-submit>
     </form>
 </template>
 
@@ -11,7 +11,7 @@ import Submit from "./ButtonSubmit.vue";
 export default {
     name: 'FormCustom',
     props: {
-        values: Array,
+        values: Object,
     },
     components: {
         'button-submit': Submit,
@@ -21,8 +21,9 @@ export default {
             if (this.values.length === 0) {
                 return false;
             }
-            for (let i = 0; i < this.values.length; i++) {
-                if (!this.values[i]) {
+            let key = "";
+            for (key in this.values) {
+                if (!this.values[key]) {
                     return false;
                 }
             }
@@ -31,7 +32,13 @@ export default {
     },
     methods: {
         submit: function () {
-            alert(this.values);
+            let msg = ""
+            let key = ""
+            for (key in this.values) {
+                msg += key + ": ";
+                msg += this.values[key] + "\n"
+            }
+            alert(msg);
         }
     }
 }
@@ -39,6 +46,13 @@ export default {
 
 <style scoped>
 form {
-    font-size: 1.2em;
+    font-size: 18px;
+    width: 100%;
+    height: 100%;
+}
+.submit-button {
+    position: absolute;
+    width: inherit;
+    bottom: 0;
 }
 </style>

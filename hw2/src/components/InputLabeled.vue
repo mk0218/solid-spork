@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="input-labeled">
         <div class="label-area">
             {{ label }}
         </div>
@@ -17,10 +17,15 @@ export default {
 </script>
 
 <style scoped>
-div {
-    display: inline-block;
+.input-labeled {
+    font-size: 18px;
+    position: relative;
+    display: flex;
+    height: 40px;
+    width: 100%;
 }
 .label-area {
+    padding-top: 7px;
     width: 15%;
 }
 .items {
