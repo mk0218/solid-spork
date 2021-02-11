@@ -6,7 +6,8 @@ body {
     background-size: 100vw;
     height: 2500px;
     margin: 0;
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 /* Main page elements style */
 header {
@@ -49,7 +50,7 @@ button.main-button {
     bottom: 0;
 }
 #participate {
-    z-index: 11;
+    z-index: 31;
     position: fixed;
 }
 button.main-button img {
@@ -253,9 +254,9 @@ img.share-box {
 }
 @keyframes share-box-blink {
     0% { opacity: .5; }
-    3% { opacity: 1; }
-    6% { opacity: .5; }
-    9% {opacity: 1; }
+    2% { opacity: 1; }
+    4% { opacity: .5; }
+    6% {opacity: 1; }
     100% {opacity: 1; }
 }
 @-webkit-keyframes share-box-blink {
@@ -314,59 +315,35 @@ footer li.tabbed {
 }
 
 /* Coins effects layer style */
-#coins-layer1 {
+#coins-layer-container {
     position: absolute;
-    width: 100%;
-    top: -120vh;
+    top: -80vh;
     z-index: 5;
-    animation-name: coins-fall1;
+    animation-name: coins-fall;
     animation-delay: 300ms;
     animation-duration: 400ms;
     animation-fill-mode: forwards;
 }
-@keyframes coins-fall1 {
-    from { top: -120vh; }
-    to { top: 0; }
+@keyframes coins-fall {
+    from { top: -80vh; visibility: visible; }
+    to { top: 0; visibility: visible; }
 }
-@-webkit-keyframes coins-fall1 {
-    from { top: -120vh; }
-    to { top: 0; }
+@-webkit-keyframes coins-fall  {
+    from { top: -80vh; visibility: visible; }
+    to { top: 0; visibility: visible; }
+}
+#coins-layer1 {
+    position: absolute;
+    z-index: 5;
 }
 #coins-layer2 {
     position: absolute;
-    width: 100%;
-    top: -200vh;
-    z-index: 5;
-    animation-name: coins-fall2;
-    animation-delay: 300ms;
-    animation-duration: 400ms;
-    animation-fill-mode: forwards;
-}
-@keyframes coins-fall2 {
-    from { top: -200vh; }
-    to { top: 0; }
-}
-@-webkit-keyframes coins-fall2 {
-    from { top: -200vh; }
-    to { top: 0; }
+    z-index: 6;
 }
 #coins-layer3 {
-    position: absolute;
     width: 100%;
-    top: -80vh;
-    z-index: 5;
-    animation-name: coins-fall3;
-    animation-delay: 300ms;
-    animation-duration: 400ms;
-    animation-fill-mode: forwards;
-}
-@keyframes coins-fall3 {
-    from { top: -80vh; }
-    to { top: 0; }
-}
-@-webkit-keyframes coins-fall3 {
-    from { top: -80vh; }
-    to { top: 0; }
+    position: absolute;
+    z-index: 7;
 }
 .coin {
     position: absolute;
@@ -401,7 +378,7 @@ footer li.tabbed {
     width: 100%;
     height: 100vh;
     background-color: black;
-    z-index: 11;
+    z-index: 30;
     visibility: hidden;
 }
 #send-page-upper {
@@ -412,7 +389,7 @@ footer li.tabbed {
     background-repeat: no-repeat;
     width: 100%;
     height: 50vh;
-    z-index: 13;
+    z-index: 32;
     top: -5vh;
 }
 .send-page-upper-open {
@@ -429,6 +406,14 @@ footer li.tabbed {
     90% { top: -1vh; }
     100% { top: 0; }
 }
+@-webkit-keyframes open-upper {
+    0% { top: -5vh; }
+    40% { top: 0; }
+    60% { top: -3vh;}
+    80% { top: 0; }
+    90% { top: -1vh; }
+    100% { top: 0; }
+}
 #send-page-lower {
     position: fixed;
     background-image: url("./resources/DesignSource02/bg_lower.jpg");
@@ -437,7 +422,7 @@ footer li.tabbed {
     top: 55vh;
     width: 100%;
     height: 50vh;
-    z-index: 12;
+    z-index: 33;
 }
 .send-page-lower-open {
     animation-name: open-lower;
@@ -454,7 +439,7 @@ footer li.tabbed {
     100% { top: 50vh; }
 }
 .send-page-item {
-    z-index: 14;
+    z-index: 34;
 }
 .send-page-container {
     position: absolute;
@@ -479,7 +464,7 @@ footer li.tabbed {
     position: absolute;
     top: 15px;
     left: calc(50% + 160px);
-    z-index: 15;
+    z-index: 35;
 }
 #send-money {
     position: absolute;

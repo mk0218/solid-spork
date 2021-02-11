@@ -90,18 +90,21 @@
                 </div>
             </footer>
         </div>
-        
-        <div id="coins-layer1">
-            <img id="coin1" class="coin" src="./resources/DesignSource01/coin/coin1.png"></img>
-            <img id="coin2" class="coin" src="./resources/DesignSource01/coin/coin2.png"></img>
-        </div>
-        <div id="coins-layer2">
-            <img id="coin3" class="coin" src="./resources/DesignSource01/coin/coin3.png"></img>
-            <img id="coin4" class="coin" src="./resources/DesignSource01/coin/coin4.png"></img>
-        </div>
-        <div id="coins-layer3">
-            <img id="coin5" class="coin" src="./resources/DesignSource01/coin/coin5.png"></img>
-            <img id="coin6" class="coin" src="./resources/DesignSource01/coin/coin6.png"></img>
+
+        <!-- Main page coins fall effect -->
+        <div id="coins-layer-container">
+            <div id="coins-layer1" class="parallex-layer">
+                <img id="coin1" class="coin" src="./resources/DesignSource01/coin/coin1.png"></img>
+                <img id="coin2" class="coin" src="./resources/DesignSource01/coin/coin2.png"></img>
+            </div>
+            <div id="coins-layer2" class="parallex-layer">
+                <img id="coin3" class="coin" src="./resources/DesignSource01/coin/coin3.png"></img>
+                <img id="coin4" class="coin" src="./resources/DesignSource01/coin/coin4.png"></img>
+            </div>
+            <div id="coins-layer3" class="parallex-layer">
+                <img id="coin5" class="coin" src="./resources/DesignSource01/coin/coin5.png"></img>
+                <img id="coin6" class="coin" src="./resources/DesignSource01/coin/coin6.png"></img>
+            </div>
         </div>
 
         <!-- Send page -->
@@ -133,7 +136,6 @@
 
     <script>
         function closeSendPage () {
-            console.log("closeSendPage");
             const sendPage = document.getElementById("send-page");
             const sendUpper = document.getElementById("send-page-upper");
             const sendLower = document.getElementById("send-page-lower");
@@ -144,7 +146,6 @@
             sendLower.style.top = "55vh";
         }
         function openSendPage () {
-            console.log("openSendPage");
             const sendPage = document.getElementById("send-page");
             const sendUpper = document.getElementById("send-page-upper");
             const sendLower = document.getElementById("send-page-lower");
@@ -152,5 +153,46 @@
             sendUpper.classList.add('send-page-upper-open');
             sendLower.classList.add('send-page-lower-open');
         }
+
+        let last_known_scroll_position = window.scrollY;
+        let ticking = false;
+
+        function addPixel(pixelStr, delta) {
+            const px = Number(pixelStr.replace("px", ""));
+            return (px + delta).toString() + "px";
+        }
+
+        function moveLayers(scroll_delta) {
+            const layer1 = document.getElementById("coins-layer1");
+            const layer2 = document.getElementById("coins-layer2");
+            const layer3 = document.getElementById("coins-layer3");
+            if (!layer1.style.top) {
+                layer1.style.top = "0";
+            }
+            if (!layer2.style.top) {
+                layer2.style.top = "0";
+            }
+            if (!layer3.style.top) {
+                layer3.style.top = "0";
+            }
+            console.log(layer1.style.top);
+            layer1.style.top = addPixel(layer1.style.top, scroll_delta / 7);
+            layer2.style.top = addPixel(layer2.style.top, scroll_delta / 9);
+            layer3.style.top = addPixel(layer3.style.top, scroll_delta / 8);
+            console.log(layer1.style.top);
+        }
+
+        window.addEventListener('scroll', function(e) {
+            let scroll_delta = last_known_scroll_position - window.scrollY;
+            last_known_scroll_position = window.scrollY;
+
+            if (!ticking) {
+                window.requestAnimationFrame(function() {
+                    moveLayers(scroll_delta);
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
     </script>
 </html>
