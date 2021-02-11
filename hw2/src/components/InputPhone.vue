@@ -7,7 +7,7 @@
             class="phone phone-number"
             type="number"
             v-model="inputDigits"
-            @input="$emit('input', prefixValue + $event.target.value)">
+            @input="update">
         <button
             class="phone phone-button"
             type="button"
@@ -28,7 +28,9 @@ export default {
     },
     computed: {
         validInput: function () {
-            if (!this.inputDigits) {
+            if (!this.inputDigits ||
+                typeof Number(this.inputDigits) !== "number"
+                ) {
                 return false;
             } else {
                 return true;
@@ -41,6 +43,14 @@ export default {
                 "본인인증하는 창\n" + "전화번호: " +
                 this.prefixValue + this.inputDigits;
             alert(msg);
+        },
+        update: function () {
+            let phone = "";
+            if (this.validInput) {
+                phone = this.prefixValue + this.inputDigits;
+            }
+            console.log(phone);
+            this.$emit('input', phone);
         }
     }
 }
