@@ -1,7 +1,7 @@
 <template>
     <form class="custom">
         <slot></slot>
-        <button-submit @click="submit" :disabled="!validated">가입하기</button-submit>
+        <button-submit class="submit-button" @click="submit" :disabled="!validated">가입하기</button-submit>
     </form>
 </template>
 
@@ -39,6 +39,13 @@ export default {
 
 <style scoped>
 form {
-    font-size: 1.2em;
+    font-size: 1.2rem;
+    width: 100%;
+    height: 100%;
+}
+.submit-button {
+    position: absolute;
+    width: inherit;
+    bottom: 0;
 }
 </style>

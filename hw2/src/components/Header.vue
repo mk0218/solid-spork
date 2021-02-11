@@ -1,5 +1,7 @@
 <template>
-    <h1><slot></slot></h1>
+    <div>
+        <h1><slot></slot></h1>
+    </div>
 </template>
 
 <script>
@@ -10,7 +12,9 @@ export default {
 
 <style scoped>
 h1 {
-    font-size: 2em;
-    margin-top: 0;
+    position: absolute;
+    font-size: 1.7rem;
+    margin: 0;
+    bottom: 25px;
 }
 </style>

@@ -59,21 +59,32 @@ export default {
 </script>
 
 <style scoped>
-div.xor_button {
+div.xor-button {
+    position: relative;
     width: 100%;
+    margin: 20px 0 20px 0;
+    border-radius: 6px;
 }
 .xor {
     width: 50%;
+    height: 40px;
     float: left;
     padding: 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: 1px solid rgb(180, 180, 180);
 }
 .xor.selected {
-    background-color: darkgrey;
+    background-color: #2196F3;
+    border: 1px solid #0b7ad1;
+    color: white;
 }
 .left {
     border-right: 0;
+    border-radius: 6px 0 0 6px;
 }
 .right {
     border-left: 0;
+    border-radius: 0 6px 6px 0;
 }
 </style>

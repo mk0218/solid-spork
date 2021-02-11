@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="agree">
         <span>모든 약관 내용에 동의합니다.</span>
         <label class="switch">
             <input type="checkbox" @input="$emit('toggle')">
@@ -15,17 +15,21 @@ export default {
 </script>
 
 <style scoped>
+.agree {
+  /*display: flex;*/
+  width: 100%;
+}
 span {
-    font-size: 0.95em;
+    font-size: 1rem;
 }
 .switch-box {
     position: absolute;
 }
 /* The switch - the box around the slider */
 .switch {
-  position: relative;
-  display: inline-block;
-  float: right;
+  position: absolute;
+  top: 6px;
+  right: 0;
   width: 40px;
   height: 20px;
 }

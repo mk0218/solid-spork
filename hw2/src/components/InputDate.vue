@@ -7,6 +7,7 @@
             :max="year"
             v-model="year"
             @input="update">
+        <div class="text">년</div>
         <input
             class="month"
             type="number"
@@ -14,12 +15,14 @@
             max="12"
             v-model="month"
             @input="update">
+        <div class="text">월</div>
         <input class="date"
             type="number"
             min="1"
             max="31"
             v-model="date"
             @input="update">
+        <div class="text">일</div>
     </div>
 </template>
 
@@ -48,23 +51,44 @@ export default {
 
 <style scoped>
 input {
+    outline: none;
+    min-width: 1px;
     position: relative;
-    display: inline;
     margin-left: 5px;
-    height: 100%;
-    padding: 4px;
-    font-size: 1em;
+    padding: 0 8px;
+    border: 1px solid rgb(120, 120, 120);
+    border-radius: 4px;
+    height: 40px;
+    font-size: 1rem;
+}
+input:focus {
+    border: 1px solid #2196F3;
 }
 .container {
     width: 100%;
+    display: flex;
+    flex-shrink: 1;
+    width: 100%;
 }
 .year {
-    width: calc(40% - 5px);
+    width: calc(30% - 5px);
 }
 .month {
     width: calc(20% - 5px);
 }
 .date {
-    width: calc(40% - 35px);
+    width: calc(50% - 59px);
 }
+.text {
+    font-size: 18px;
+    margin-left: 3px;
+    padding-top: 7px;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] { -moz-appearance: textfield; }
 </style>
