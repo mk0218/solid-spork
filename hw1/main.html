@@ -187,11 +187,9 @@
             if (!layer3.style.top) {
                 layer3.style.top = "0";
             }
-            console.log(layer1.style.top);
             layer1.style.top = addPixel(layer1.style.top, scroll_delta / 7);
             layer2.style.top = addPixel(layer2.style.top, scroll_delta / 9);
             layer3.style.top = addPixel(layer3.style.top, scroll_delta / 8);
-            console.log(layer1.style.top);
         }
 
         window.addEventListener('scroll', function(e) {
